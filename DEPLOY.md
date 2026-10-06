@@ -1,4 +1,4 @@
-- Python 3.10, Docker Desktop, Git.
+- Python 3.10,Git.
 - Two separate virtual environments (their dependencies clash):
   - `.venv-rasa`: `pip install -r requirements.txt` + `python -m spacy download en_core_web_md`
   - `.venv-app` (optional Streamlit UI): `pip install -r requirements-frontend.txt`
