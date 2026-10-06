@@ -1,25 +1,3 @@
-"""
-Custom actions for the Rasa Eco-Travel Advisor.
-
-  - ActionAskDestination            : quick-reply buttons built from the data set
-  - ValidateTripIntakeForm          : validates/normalises form slots
-  - ActionCalculateCarbonFootprint  : Climatiq (if key set) + built-in estimator
-  - ActionFetchTravelOptions        : curated eco hotels + Amadeus hotels/flights
-                                      (fetched in parallel, token cached)
-  - ActionShowExperiences           : curated community-based experiences
-  - ActionShowOffsets               : carbon-offset programmes + indicative cost
-  - ActionRankOptions               : weighted score (carbon, price, preference)
-                                      + lowest-carbon transport + trip total
-  - ActionHandoverToHuman           : packages full context for a human advisor
-                                      (only runs AFTER the user consents)
-  - ActionDefaultFallback           : two-stage clarification -> consent
-  - ActionAskHandoverConsent / ActionHandleAffirm / ActionHandleDeny :
-                                      consent-gated human handover
-
-Every external call is wrapped in try/except and degrades to a local
-fallback, so the bot never crashes and never returns an empty answer.
-"""
-
 import json
 import logging
 import math
@@ -35,7 +13,7 @@ from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-try:  # optional: load keys from .env when running locally
+try:  
     from dotenv import load_dotenv
 
     load_dotenv()
@@ -74,10 +52,6 @@ CURATED_EXPERIENCES_PATH = os.path.join(
     os.path.dirname(__file__), "..", "data", "curated_experiences.json"
 )
 
-# --------------------------------------------------------------------------
-# Built-in reference data (used when no API key / API failure)
-# --------------------------------------------------------------------------
-# name -> (lat, lon, region, amadeus city code)
 CITIES: Dict[str, Tuple[float, float, str, str]] = {
     "berlin": (52.52, 13.405, "europe", "BER"),
     "hamburg": (53.551, 9.994, "europe", "HAM"),
@@ -113,9 +87,6 @@ MODE_LABELS = {
 }
 
 
-# --------------------------------------------------------------------------
-# Helpers
-# --------------------------------------------------------------------------
 def _safe_get(url, headers=None, params=None):
     try:
         response = requests.get(
@@ -157,9 +128,6 @@ def _display_place(name: Optional[str]) -> str:
     return _normalise_place(name).title() if name else ""
 
 
-# --------------------------------------------------------------------------
-# Travel-date parsing / validation
-# --------------------------------------------------------------------------
 _MONTHS = {
     "january": 1, "jan": 1, "february": 2, "feb": 2, "march": 3, "mar": 3,
     "april": 4, "apr": 4, "may": 5, "june": 6, "jun": 6, "july": 7, "jul": 7,
@@ -1052,9 +1020,6 @@ class ActionGreet(Action):
         return []
 
 
-# --------------------------------------------------------------------------
-# Cultural experiences and carbon offsets (curated demo data set)
-# --------------------------------------------------------------------------
 def _load_experience_data() -> Dict[str, Any]:
     try:
         with open(CURATED_EXPERIENCES_PATH, "r", encoding="utf-8") as handle:
@@ -1148,9 +1113,6 @@ class ActionShowOffsets(Action):
         return []
 
 
-# --------------------------------------------------------------------------
-# Human handover
-# --------------------------------------------------------------------------
 def _do_handover(dispatcher, tracker, reason: str):
     """Packages the full context and delivers it (endpoint, else local file).
 
