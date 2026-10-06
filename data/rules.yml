@@ -7,9 +7,6 @@ rules:
     - intent: greet
     - action: action_greet
 
-# ---- Form activation: any trip detail can start the intake -----------------
-# Entity-mapped slots (destination, origin, dates, budget, preference) are
-# filled from the triggering message; the form then asks for what is missing.
 - rule: Activate trip intake form on destination
   steps:
     - intent: inform_destination
@@ -77,7 +74,6 @@ rules:
     - active_loop: null
     - action: utter_goodbye
 
-# ---- Out of scope ----------------------------------------------------------
 - rule: Out of scope (no form active)
   condition:
     - active_loop: null
@@ -94,7 +90,6 @@ rules:
     - action: trip_intake_form
     - active_loop: trip_intake_form
 
-# ---- Questions: answered directly, or as an interruption of the form -------
 - rule: Carbon footprint question
   condition:
     - active_loop: null
@@ -151,7 +146,6 @@ rules:
     - action: trip_intake_form
     - active_loop: trip_intake_form
 
-# ---- Human handover (GDPR: ask consent BEFORE sharing the transcript) ------
 - rule: Request for a human advisor (no form active) - ask consent
   condition:
     - active_loop: null
@@ -183,10 +177,7 @@ rules:
     - intent: deny
     - action: action_handle_deny
 
-# ---- Two-stage fallback ----------------------------------------------------
-# action_default_fallback counts consecutive failed turns itself:
-#   1st failure -> clarification message with quick-reply buttons
-#   2nd failure -> consent question (-> handover only after "yes")
+
 - rule: Two-stage fallback (no form active)
   condition:
     - active_loop: null
@@ -194,8 +185,6 @@ rules:
     - intent: nlu_fallback
     - action: action_default_fallback
 
-# Inside the form the typed text is still accepted as the slot value
-# (from_text mapping), so the form simply continues.
 - rule: Fallback while the form is active
   condition:
     - active_loop: trip_intake_form
