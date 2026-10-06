@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco-Travel Advisor</title>
+  <style>
+    :root { --green:#2e7d32; --amber:#b54708; --red:#c62828; --ink:#1b2a22; }
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background:#f4f7f5; margin:0; color:var(--ink); }
+    header { background:#1f4e3d; color:#fff; padding:1rem 1.5rem; }
+    header h1 { margin:0; font-size:1.3rem; }
+    main { max-width:760px; margin:1rem auto; padding:0 1rem; }
+    #handover-banner { display:none; background:#fff3cd; border:1px solid #ffe69c; color:#664d03;
+      padding:.75rem 1rem; border-radius:6px; margin-bottom:.75rem; }
+    #log { background:#fff; border-radius:8px; padding:1rem; height:60vh; overflow-y:auto; border:1px solid #d7e2dc; }
+    .msg { margin:.4rem 0; padding:.55rem .8rem; border-radius:10px; max-width:85%; white-space:pre-wrap; }
+    .bot { background:#e8f3ec; }
+    .user { background:#1f4e3d; color:#fff; margin-left:auto; }
+    .quick { display:flex; flex-wrap:wrap; gap:.4rem; margin:.3rem 0 .6rem; }
+    .quick button, #send, #mic, #geo { border:1px solid #1f4e3d; background:#fff; color:#1f4e3d; border-radius:16px;
+      padding:.35rem .8rem; cursor:pointer; font-size:.9rem; }
+    .quick button:hover, #send:hover, #mic:hover, #geo:hover { background:#1f4e3d; color:#fff; }
+    .card { border-left:6px solid #999; background:#fff; border-radius:6px; padding:.6rem .8rem; margin:.4rem 0;
+      box-shadow:0 1px 3px rgba(0,0,0,.12); }
+    .card.low { border-color:var(--green); } .card.medium { border-color:var(--amber); } .card.high { border-color:var(--red); }
+    .badge { display:inline-block; padding:1px 10px; border-radius:12px; font-size:.78rem; font-weight:600; color:#fff; }
+    .badge.low { background:var(--green); } .badge.medium { background:var(--amber); } .badge.high { background:var(--red); }
+    .badge.unknown { background:#6b6b6b; }
+    .alert { background:#fdecea; color:var(--red); border:1px solid #f5c2c0; padding:.5rem .8rem; border-radius:6px; margin:.4rem 0; }
+    .carousel { display:flex; gap:.6rem; overflow-x:auto; padding-bottom:.4rem; }
+    .carousel .card { min-width:200px; flex:0 0 auto; }
+    form { display:flex; gap:.5rem; margin-top:.6rem; }
+    #input { flex:1; padding:.6rem .8rem; border:1px solid #9bb3a6; border-radius:8px; font-size:1rem; }
+    .sr-only { position:absolute; left:-9999px; }
+    #privacy { background:#eef5f1; border:1px solid #cfe0d6; border-radius:6px; padding:.5rem .8rem; margin-bottom:.75rem; font-size:.85rem; }
+    small.tip { color:#55675d; }
+    button:focus-visible, input:focus-visible { outline:3px solid #1a73e8; outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <header><h1>🌍 Eco-Travel Advisor</h1></header>
+  <main>
+    <div id="privacy" role="note">
+      🔒 Privacy: your messages are kept in memory for this chat only. If you ask for a
+      human advisor, the conversation is shared with them <strong>only after you agree</strong>.
+      Your browser location is used only if you tap 📍, and only the nearest supported city
+      name is sent to the bot (never your coordinates).
+    </div>
+    <div id="handover-banner" role="status" aria-live="polite">
+      ✅ You've been connected to a human travel specialist. They have the full conversation context.
+    </div>
+    <div id="log" role="log" aria-live="polite" aria-label="Conversation"></div>
+    <form id="form" autocomplete="off">
+      <label for="input" class="sr-only">Type your message</label>
+      <input id="input" placeholder="Type a message…" />
+      <button type="button" id="geo" title="Use my location as the starting city" aria-label="Use my location as starting city">📍</button>
+      <button type="button" id="mic" title="Speak (if supported by your browser)" aria-label="Speak">🎤</button>
+      <button id="send" type="submit">Send</button>
+    </form>
+    <small class="tip">Colours: 🟢 low · 🟠 moderate · 🔴 high emissions. Values are estimates; hotels are a demo data set and their eco-labels are not verified.</small>
+  </main>
+
+<script>
+  // Rasa REST channel. Start Rasa with:  rasa run --cors "*" -p 5005   (REST channel only; no --enable-api needed)
+  // Backend URL: ?rasa=https://your-space.hf.space overrides the default (deployed demo).
+  const BASE = (new URLSearchParams(location.search).get("rasa") || window.RASA_URL || "http://localhost:5005").replace(/\/$/, "");
+  const RASA_URL = BASE + "/webhooks/rest/webhook";
+  const LABEL = { low: "low emissions", medium: "moderate emissions", high: "high emissions", unknown: "emissions unknown" };
+  const SENDER = "web-" + Math.random().toString(36).slice(2, 10);
+  const log = document.getElementById("log");
+  const input = document.getElementById("input");
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;   // textContent => no HTML injection
+    return e;
+  }
+  function scrollDown() { log.scrollTop = log.scrollHeight; }
+  function addMsg(text, who) { log.appendChild(el("div", "msg " + who, text)); scrollDown(); }
+
+  function addButtons(buttons) {
+    const row = el("div", "quick");
+    buttons.forEach(b => {
+      const btn = el("button", "", b.title);
+      btn.type = "button";
+      btn.onclick = () => { row.remove(); addMsg(b.title, "user"); send(b.payload); };
+      row.appendChild(btn);
+    });
+    log.appendChild(row); scrollDown();
+  }
+
+  function renderCarbon(c) {
+    if (c.high_emission_alert) {
+      const alertBox = el("div", "alert", "⚠️ " + (c.alert_text || "High-emission option(s) on this route."));
+      alertBox.setAttribute("role", "alert");
+      log.appendChild(alertBox);
+    }
+    (c.options || []).forEach(o => {
+      const card = el("div", "card " + o.category);
+      card.appendChild(el("strong", "", o.label + "  "));
+      card.appendChild(el("span", "badge " + o.category, LABEL[o.category] || o.category));
+      card.appendChild(el("div", "", o.co2e_kg + " kg CO2e · " + o.distance_km + " km"));
+      card.title = "kg CO2e = kilograms of carbon dioxide equivalent per passenger, one way.";
+      card.setAttribute("role", "group");
+      card.setAttribute("aria-label", o.label + ": " + o.co2e_kg + " kilograms CO2e, " + (LABEL[o.category] || ""));
+      log.appendChild(card);
+    });
+    scrollDown();
+  }
+
+  function renderHotels(h) {
+    const wrap = el("div", "carousel");
+    (h.hotels || []).forEach(x => {
+      const card = el("div", "card unknown");   // neutral border: colour is reserved for the carbon badge
+      card.appendChild(el("strong", "", x.name));
+      card.appendChild(el("div", "", x.price ? "€" + x.price + " / night" : "price n/a"));
+      const cat = x.category || "unknown";
+      const carbonLine = el("div", "");
+      carbonLine.appendChild(el("span", "badge " + cat, "Carbon: " + (LABEL[cat] || cat)));
+      if (x.carbon_kg_per_night != null) carbonLine.appendChild(document.createTextNode("  ~" + x.carbon_kg_per_night + " kg CO2e / night"));
+      card.appendChild(carbonLine);
+      if (x.trip_total_kg_co2e != null) card.appendChild(el("div", "", "Trip total ≈ " + x.trip_total_kg_co2e + " kg CO2e" + (h.nights ? " (" + h.nights + " nights)" : "")));
+      // Anti-greenwashing: only real, verified records get a check mark.
+      let ver = "⚠️ certification unverified";
+      if (x.verification === "demo") ver = "🧪 demo data (certification NOT verified)";
+      else if (x.verification === "verified") ver = "✅ verified: " + (x.certification_body || "eco-certified");
+      card.appendChild(el("div", "", ver));
+      card.setAttribute("role", "group");
+      card.setAttribute("aria-label", x.name + ", " + (x.price ? x.price + " euros per night, " : "") + "carbon: " + (LABEL[cat] || "") + ", " + ver);
+      wrap.appendChild(card);
+    });
+    log.appendChild(wrap); scrollDown();
+  }
+
+  function render(messages) {
+    messages.forEach(m => {
+      if (m.text) addMsg(m.text, "bot");
+      if (m.custom) {
+        if (m.custom.type === "carbon_card") renderCarbon(m.custom);
+        if (m.custom.type === "hotel_carousel") renderHotels(m.custom);
+        if (m.custom.type === "handover") document.getElementById("handover-banner").style.display = "block";
+      }
+      if (m.buttons && m.buttons.length) addButtons(m.buttons);
+    });
+  }
+
+  async function send(text) {
+    try {
+      const res = await fetch(RASA_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sender: SENDER, message: text })
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      render(await res.json());
+    } catch (err) {
+      addMsg("⚠️ I couldn't reach the assistant at " + BASE + ". Is the Rasa server running?", "bot");
+    }
+  }
+
+  document.getElementById("form").addEventListener("submit", e => {
+    e.preventDefault();
+    const t = input.value.trim();
+    if (!t) return;
+    addMsg(t, "user"); input.value = ""; send(t);
+  });
+
+  // Optional voice input (Web Speech API; not available in every browser)
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const mic = document.getElementById("mic");
+  if (!SR) { mic.style.display = "none"; }
+  else {
+    mic.onclick = () => {
+      const r = new SR(); r.lang = "en-GB";
+      r.onresult = ev => { input.value = ev.results[0][0].transcript; };
+      r.start();
+    };
+  }
+
+  // Browser geolocation -> nearest SUPPORTED city (same table as the action server).
+  // Coordinates stay in the browser; only the city name is sent as a quick-reply payload.
+  const CITIES = { Berlin:[52.52,13.405], Hamburg:[53.551,9.994], Munich:[48.137,11.575], Lisbon:[38.722,-9.139],
+    Rome:[41.903,12.496], Paris:[48.857,2.352], London:[51.507,-0.128], Amsterdam:[52.368,4.904], Vienna:[48.208,16.373],
+    Barcelona:[41.385,2.173], Madrid:[40.417,-3.704], Prague:[50.075,14.438] };
+  function km(a, b) {
+    const r = x => x * Math.PI / 180, dLat = r(b[0]-a[0]), dLon = r(b[1]-a[1]);
+    const h = Math.sin(dLat/2)**2 + Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(dLon/2)**2;
+    return 2 * 6371 * Math.asin(Math.sqrt(h));
+  }
+  const geo = document.getElementById("geo");
+  if (!navigator.geolocation) { geo.style.display = "none"; }
+  else {
+    geo.onclick = () => navigator.geolocation.getCurrentPosition(pos => {
+      const here = [pos.coords.latitude, pos.coords.longitude];
+      const [name, dist] = Object.entries(CITIES).map(([n, c]) => [n, km(here, c)]).sort((a, b) => a[1] - b[1])[0];
+      if (dist > 200) { addMsg("I couldn't match your location to a supported city. Please type your starting city.", "bot"); return; }
+      addMsg("📍 " + name + " (nearest supported city)", "user");
+      send('/inform_origin{"origin":"' + name + '"}');
+    }, () => addMsg("Location is unavailable or was denied. Please type your starting city.", "bot"),
+    { timeout: 8000, maximumAge: 600000 });
+  }
+
+  send("/greet");
+</script>
+</body>
+</html>

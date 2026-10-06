@@ -1,0 +1,458 @@
+[
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.4641113877296448
+    }
+  },
+  {
+    "text": "hiya",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "inform_dates",
+      "confidence": 0.23446950316429138
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5085625648498535
+    }
+  },
+  {
+    "text": "exactly",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.2098998874425888
+    }
+  },
+  {
+    "text": "fine by me",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.15588156878948212
+    }
+  },
+  {
+    "text": "nah",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8595901727676392
+    }
+  },
+  {
+    "text": "Amsterdam sounds nice",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5899726152420044
+    }
+  },
+  {
+    "text": "somewhere in the Scottish Highlands",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.49768534302711487
+    }
+  },
+  {
+    "text": "can you suggest a low-impact place to sleep?",
+    "intent": "ask_recommendations",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.6016334891319275
+    }
+  },
+  {
+    "text": "I'd like to speak to someone",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.795336127281189
+    }
+  },
+  {
+    "text": "I'm done, thanks",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.366793155670166
+    }
+  },
+  {
+    "text": "until next time",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.36467525362968445
+    }
+  },
+  {
+    "text": "please do",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3347567617893219
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3530343770980835
+    }
+  },
+  {
+    "text": "wrong",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7767564058303833
+    }
+  },
+  {
+    "text": "I decline",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7139477729797363
+    }
+  },
+  {
+    "text": "we are travelling to Paris",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.36810657382011414
+    }
+  },
+  {
+    "text": "around Christmas",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.25061169266700745
+    }
+  },
+  {
+    "text": "somewhere in the middle",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.29912248253822327
+    }
+  },
+  {
+    "text": "what are the greenest transport options?",
+    "intent": "ask_recommendations",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.8249143958091736
+    }
+  },
+  {
+    "text": "I'd like to compensate for my carbon footprint",
+    "intent": "ask_offsets",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.6512003540992737
+    }
+  },
+  {
+    "text": "I want to neutralise the emissions of this trip",
+    "intent": "ask_offsets",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.7245726585388184
+    }
+  },
+  {
+    "text": "I want a travel advisor to look at my trip",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "ask_offsets",
+      "confidence": 0.45936235785484314
+    }
+  },
+  {
+    "text": "who is the president",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.6258248686790466
+    }
+  },
+  {
+    "text": "give me a recipe for soup",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.5499195456504822
+    }
+  },
+  {
+    "text": "how tall is Mount Everest",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.5287186503410339
+    }
+  },
+  {
+    "text": "howdy",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.45256009697914124
+    }
+  },
+  {
+    "text": "I have to go now",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.21768487989902496
+    }
+  },
+  {
+    "text": "that works",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6937513947486877
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.27733707427978516
+    }
+  },
+  {
+    "text": "that's incorrect",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3057362735271454
+    }
+  },
+  {
+    "text": "probably the second week of May",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.4078383147716522
+    }
+  },
+  {
+    "text": "how green is this option?",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.8193070292472839
+    }
+  },
+  {
+    "text": "estimate my emissions for Costa Rica",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_offsets",
+      "confidence": 0.5264444947242737
+    }
+  },
+  {
+    "text": "I need expert help planning a multi-city trip",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8802953958511353
+    }
+  },
+  {
+    "text": "tell me about the history of Rome",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.9080540537834167
+    }
+  },
+  {
+    "text": "take care",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3085012137889862
+    }
+  },
+  {
+    "text": "I agree",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.48440730571746826
+    }
+  },
+  {
+    "text": "I'm happy with that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.955638587474823
+    }
+  },
+  {
+    "text": "never mind",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.4865587055683136
+    }
+  },
+  {
+    "text": "I'm thinking Kyoto",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.4904971122741699
+    }
+  },
+  {
+    "text": "lowest emissions please",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.7481500506401062
+    }
+  },
+  {
+    "text": "play some music",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3894277811050415
+    }
+  },
+  {
+    "text": "translate this into French",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.36403101682662964
+    }
+  },
+  {
+    "text": "help me with my homework",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.5977135300636292
+    }
+  },
+  {
+    "text": "start",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.3716348111629486
+    }
+  },
+  {
+    "text": "talk to you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.5356221199035645
+    }
+  },
+  {
+    "text": "absolutely",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5844963788986206
+    }
+  },
+  {
+    "text": "go ahead",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9671205282211304
+    }
+  },
+  {
+    "text": "negative",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3835572898387909
+    }
+  },
+  {
+    "text": "travelling from 3rd to 10th of March",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.5313426852226257
+    }
+  },
+  {
+    "text": "I want the most sustainable option",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.9912518858909607
+    }
+  },
+  {
+    "text": "tell me the CO2e of my route",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.8432384133338928
+    }
+  },
+  {
+    "text": "which transport has the lowest emissions?",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.7152280807495117
+    }
+  },
+  {
+    "text": "please connect me to customer support",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.40210193395614624
+    }
+  },
+  {
+    "text": "how do I cook pasta",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7259832620620728
+    }
+  },
+  {
+    "text": "what is 25 times 4",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "inform_dates",
+      "confidence": 0.9893989562988281
+    }
+  }
+]

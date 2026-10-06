@@ -1,0 +1,3 @@
+# LOCAL development (rasa run actions on port 5055).
+action_endpoint:
+  url: "http://localhost:5055/webhook"

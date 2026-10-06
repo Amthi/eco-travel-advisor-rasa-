@@ -1,0 +1,64 @@
+{
+  "sustainability_level": {
+    "precision": 0.6041666666666666,
+    "recall": 0.4264705882352941,
+    "f1-score": 0.5,
+    "support": 68,
+    "confused_with": {}
+  },
+  "origin": {
+    "precision": 0.9047619047619048,
+    "recall": 0.9047619047619048,
+    "f1-score": 0.9047619047619048,
+    "support": 21,
+    "confused_with": {
+      "destination": 2
+    }
+  },
+  "destination": {
+    "precision": 0.9333333333333333,
+    "recall": 0.9655172413793104,
+    "f1-score": 0.9491525423728815,
+    "support": 58,
+    "confused_with": {
+      "origin": 1
+    }
+  },
+  "budget": {
+    "precision": 1.0,
+    "recall": 0.9583333333333334,
+    "f1-score": 0.9787234042553191,
+    "support": 48,
+    "confused_with": {
+      "destination": 2
+    }
+  },
+  "travel_date": {
+    "precision": 0.9298245614035088,
+    "recall": 0.828125,
+    "f1-score": 0.8760330578512396,
+    "support": 64,
+    "confused_with": {
+      "sustainability_level": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.875,
+    "recall": 0.7837837837837838,
+    "f1-score": 0.8268839103869653,
+    "support": 259
+  },
+  "macro avg": {
+    "precision": 0.8744172932330827,
+    "recall": 0.8166416135419684,
+    "f1-score": 0.841734181848269,
+    "support": 259
+  },
+  "weighted avg": {
+    "precision": 0.8560827745038272,
+    "recall": 0.7837837837837838,
+    "f1-score": 0.8150412608662618,
+    "support": 259
+  },
+  "accuracy": 0.9586820083682008
+}

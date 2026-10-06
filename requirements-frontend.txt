@@ -1,0 +1,4 @@
+# Only for the optional Streamlit prototype. Install in a SEPARATE venv:
+# Streamlit's dependency pins clash with Rasa 3.6's.
+streamlit>=1.30
+requests>=2.31

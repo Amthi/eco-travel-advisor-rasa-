@@ -1,0 +1,6 @@
+# Rasa environment (Python 3.10).  spaCy is installed by the rasa[spacy] extra
+# at the version Rasa 3.6 supports (3.4.x) - do NOT pin spaCy yourself.
+rasa[spacy]==3.6.20
+python-dotenv>=1.0.0
+pytest>=7.0
+requests>=2.31

@@ -1,0 +1,171 @@
+{
+  "_note": "DEMO DATA for a university prototype. Operators, benefits and prices are illustrative and NOT verified. Replace with audited listings before real use.",
+  "experiences": [
+    {
+      "destination": "Amsterdam",
+      "name": "Canal-side repair café workshop",
+      "type": "workshop",
+      "community_benefit": "fees fund a local repair collective",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Amsterdam",
+      "name": "Bike tour of urban food gardens",
+      "type": "tour",
+      "community_benefit": "run by a neighbourhood cooperative",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Bali",
+      "name": "Village rice-terrace walk",
+      "type": "guided walk",
+      "community_benefit": "guide fees go to the village cooperative",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Bali",
+      "name": "Batik workshop with local artisans",
+      "type": "workshop",
+      "community_benefit": "paid directly to artisan households",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Costa Rica",
+      "name": "Community-run rainforest guide walk",
+      "type": "guided walk",
+      "community_benefit": "local guides employed by the community association",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Costa Rica",
+      "name": "Shade-grown coffee farm visit",
+      "type": "farm visit",
+      "community_benefit": "income stays with the farming family",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Iceland",
+      "name": "Locally guided geothermal landscape walk",
+      "type": "guided walk",
+      "community_benefit": "small local operator, capped group size",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Iceland",
+      "name": "Wool-craft evening at a family farm",
+      "type": "workshop",
+      "community_benefit": "income to the host farm",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Kyoto",
+      "name": "Tea ceremony at a family tea house",
+      "type": "cultural",
+      "community_benefit": "paid directly to the family business",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Kyoto",
+      "name": "Craft workshop in a traditional textile quarter",
+      "type": "workshop",
+      "community_benefit": "fees support apprentice artisans",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Lisbon",
+      "name": "Neighbourhood tile-painting class",
+      "type": "workshop",
+      "community_benefit": "fees go to a local artisan studio",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Lisbon",
+      "name": "Walking tour led by residents",
+      "type": "tour",
+      "community_benefit": "guides are residents of the district",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Paris",
+      "name": "Market-to-table cooking class",
+      "type": "workshop",
+      "community_benefit": "local producers supply the ingredients",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Paris",
+      "name": "Seine-side cycling heritage tour",
+      "type": "tour",
+      "community_benefit": "small cooperative of local guides",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Rome",
+      "name": "Seasonal cooking class with local producers",
+      "type": "workshop",
+      "community_benefit": "ingredients bought from nearby farms",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Rome",
+      "name": "Resident-led walk through lesser-known districts",
+      "type": "tour",
+      "community_benefit": "spreads visitors beyond crowded sites",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Scottish Highlands",
+      "name": "Crofting community day",
+      "type": "farm visit",
+      "community_benefit": "income to the local croft",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Scottish Highlands",
+      "name": "Ranger-guided wildlife walk",
+      "type": "guided walk",
+      "community_benefit": "fees fund habitat restoration",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Vienna",
+      "name": "Coffee-house history walk with a local guide",
+      "type": "tour",
+      "community_benefit": "guide fees stay with the independent guide",
+      "data_status": "demo"
+    },
+    {
+      "destination": "Vienna",
+      "name": "Concert at a community orchestra venue",
+      "type": "cultural",
+      "community_benefit": "ticket income supports local musicians",
+      "data_status": "demo"
+    }
+  ],
+  "offset_programmes": [
+    {
+      "name": "Demo clean-cookstove programme",
+      "standard": "Gold Standard (illustrative)",
+      "project_type": "avoidance",
+      "eur_per_tonne_low": 10,
+      "eur_per_tonne_high": 25,
+      "data_status": "demo"
+    },
+    {
+      "name": "Demo reforestation programme",
+      "standard": "Verra VCS (illustrative)",
+      "project_type": "removal (nature-based)",
+      "eur_per_tonne_low": 15,
+      "eur_per_tonne_high": 40,
+      "data_status": "demo"
+    },
+    {
+      "name": "Demo engineered-removal programme",
+      "standard": "Puro.earth (illustrative)",
+      "project_type": "removal (engineered)",
+      "eur_per_tonne_low": 100,
+      "eur_per_tonne_high": 400,
+      "data_status": "demo"
+    }
+  ]
+}

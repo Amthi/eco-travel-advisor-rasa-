@@ -1,0 +1,236 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inform_destination
+  - inform_dates
+  - inform_budget
+  - inform_sustainability_preference
+  - inform_origin
+  - ask_carbon_footprint
+  - ask_recommendations
+  - ask_activities
+  - ask_offsets
+  - request_human_advisor
+  - out_of_scope
+  - nlu_fallback
+
+entities:
+  - destination
+  - travel_date
+  - budget
+  - sustainability_level
+  - transport_mode
+  - origin
+
+slots:
+  destination:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: destination
+      - type: from_text
+        conditions:
+          - active_loop: trip_intake_form
+            requested_slot: destination
+  travel_dates:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: travel_date
+      - type: from_text
+        conditions:
+          - active_loop: trip_intake_form
+            requested_slot: travel_dates
+  budget:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: budget
+      - type: from_text
+        conditions:
+          - active_loop: trip_intake_form
+            requested_slot: budget
+  sustainability_level:
+    type: categorical
+    values:
+      - budget_conscious
+      - balanced
+      - maximum_sustainability
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: sustainability_level
+  transport_mode:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: transport_mode
+  origin:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: origin
+      - type: from_text
+        conditions:
+          - active_loop: trip_intake_form
+            requested_slot: origin
+  handover_active:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+      - type: custom
+  awaiting_handover_consent:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+      - type: custom
+  handover_reason:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  flight_offers:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  retrieved_options:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  ranked_options:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  carbon_results:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "Hi! I'm your Eco-Travel Advisor 🌍. I can help you plan a lower-carbon trip. Your messages are kept in memory only for this chat, and shared with a human advisor only if you agree. Where would you like to go?"
+
+  utter_greet_again:
+    - text: "Hi again! Tell me where you would like to go, or pick a destination below."
+
+  utter_ask_destination:
+    - text: "Where would you like to travel to?"
+
+  utter_ask_travel_dates:
+    - text: "When are you planning to travel? (e.g. 12-18 October 2026)"
+
+  utter_ask_budget:
+    - text: "What's your approximate total budget for this trip? (e.g. 1500 euros)"
+
+  utter_ask_sustainability_level:
+    - text: "How important is sustainability for this trip?"
+      buttons:
+        - title: "Budget-conscious"
+          payload: '/inform_sustainability_preference{{"sustainability_level":"budget_conscious"}}'
+        - title: "Balanced"
+          payload: '/inform_sustainability_preference{{"sustainability_level":"balanced"}}'
+        - title: "Maximum sustainability"
+          payload: '/inform_sustainability_preference{{"sustainability_level":"maximum_sustainability"}}'
+
+  utter_clarify_intent:
+    - text: "Sorry, I didn't quite catch that. Are you asking about...?"
+      buttons:
+        - title: "Carbon footprint of a trip"
+          payload: "/ask_carbon_footprint"
+        - title: "Eco-friendly options"
+          payload: "/ask_recommendations"
+        - title: "Local experiences"
+          payload: "/ask_activities"
+        - title: "Carbon offsets"
+          payload: "/ask_offsets"
+        - title: "Plan a new trip"
+          payload: "/greet"
+        - title: "Speak to a human advisor"
+          payload: "/request_human_advisor"
+
+  utter_default_fallback:
+    - text: "I'm still not sure I understand. Let me connect you with a human travel advisor who can help directly."
+
+  utter_ask_handover_consent:
+    - text: "A human advisor can take over. To do that I will share our conversation (your trip details and messages) with them. Is that OK?"
+      buttons:
+        - title: "Yes, share and connect me"
+          payload: "/affirm"
+        - title: "No, keep chatting with the bot"
+          payload: "/deny"
+
+  utter_handover_declined:
+    - text: "No problem, nothing has been shared. I'm happy to keep helping. What would you like to do?"
+      buttons:
+        - title: "Carbon footprint of a trip"
+          payload: "/ask_carbon_footprint"
+        - title: "Eco-friendly options"
+          payload: "/ask_recommendations"
+        - title: "Plan a new trip"
+          payload: "/greet"
+
+  utter_what_next:
+    - text: "Great! What would you like to do next?"
+      buttons:
+        - title: "Plan a new trip"
+          payload: "/greet"
+        - title: "Carbon footprint of a trip"
+          payload: "/ask_carbon_footprint"
+        - title: "Speak to a human advisor"
+          payload: "/request_human_advisor"
+
+  utter_handover_notice:
+    - text: "✅ You've been connected to a human travel specialist. They now have the full context of our conversation and will follow up with you shortly."
+
+  utter_out_of_scope:
+    - text: "I can only help with sustainable trip planning: eco-friendly stays, low-carbon transport and carbon estimates. Would you like to plan a trip?"
+
+  utter_goodbye:
+    - text: "Safe and sustainable travels! 🌱"
+
+  utter_ask_rephrase:
+    - text: "Could you rephrase that for me?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+forms:
+  trip_intake_form:
+    required_slots:
+      - destination
+      - origin
+      - travel_dates
+      - budget
+      - sustainability_level
+
+actions:
+  - action_greet
+  - action_ask_destination
+  - action_ask_origin
+  - action_show_experiences
+  - action_show_offsets
+  - validate_trip_intake_form
+  - action_calculate_carbon_footprint
+  - action_fetch_travel_options
+  - action_rank_options
+  - action_handover_to_human
+  - action_ask_handover_consent
+  - action_handle_affirm
+  - action_handle_deny
+  - action_default_fallback

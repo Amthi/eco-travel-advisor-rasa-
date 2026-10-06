@@ -1,0 +1,272 @@
+[
+  {
+    "destination": "Lisbon",
+    "name": "Green Harbour Eco Lodge",
+    "price": 95,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 9,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Lisbon",
+    "name": "Riverside Sustainable Suites",
+    "price": 130,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 12,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Lisbon",
+    "name": "Alfama Solar Guesthouse",
+    "price": 75,
+    "eco_certified": true,
+    "certification_body": "Travelife",
+    "carbon_kg_per_night": 14,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Kyoto",
+    "name": "Bamboo Grove Eco Ryokan",
+    "price": 110,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Kyoto",
+    "name": "Kamo River Green Inn",
+    "price": 90,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 16,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Kyoto",
+    "name": "Higashiyama Zero-Waste Stay",
+    "price": 150,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 8,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Costa Rica",
+    "name": "Rainforest Canopy Eco Lodge",
+    "price": 140,
+    "eco_certified": true,
+    "certification_body": "Certification for Sustainable Tourism",
+    "carbon_kg_per_night": 11,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Costa Rica",
+    "name": "Pacific Coast Regenerative Retreat",
+    "price": 120,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 13,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Costa Rica",
+    "name": "Cloud Forest Community Lodge",
+    "price": 85,
+    "eco_certified": true,
+    "certification_body": "Travelife",
+    "carbon_kg_per_night": 9,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Iceland",
+    "name": "Geothermal Fjord Guesthouse",
+    "price": 160,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 7,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Iceland",
+    "name": "Highland Turf-House Lodge",
+    "price": 125,
+    "eco_certified": true,
+    "certification_body": "Nordic Swan Ecolabel",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Iceland",
+    "name": "Reykjavik Harbour Green Hotel",
+    "price": 145,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 12,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Rome",
+    "name": "Trastevere Eco Residence",
+    "price": 105,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 12,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Rome",
+    "name": "Aventine Green Rooms",
+    "price": 85,
+    "eco_certified": true,
+    "certification_body": "Travelife",
+    "carbon_kg_per_night": 15,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Rome",
+    "name": "Tiber Sustainable Hotel",
+    "price": 135,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Paris",
+    "name": "Canal Saint-Martin Eco Hotel",
+    "price": 120,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 11,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Paris",
+    "name": "Montmartre Green Stay",
+    "price": 95,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 14,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Paris",
+    "name": "Left Bank Low-Carbon Suites",
+    "price": 150,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 9,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Amsterdam",
+    "name": "Jordaan Circular Hotel",
+    "price": 125,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 8,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Amsterdam",
+    "name": "Canalside Solar Lodge",
+    "price": 110,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Amsterdam",
+    "name": "Noord Eco Hostel",
+    "price": 65,
+    "eco_certified": true,
+    "certification_body": "Travelife",
+    "carbon_kg_per_night": 13,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Vienna",
+    "name": "Danube Passive-House Hotel",
+    "price": 115,
+    "eco_certified": true,
+    "certification_body": "EU Ecolabel",
+    "carbon_kg_per_night": 9,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Vienna",
+    "name": "Naschmarkt Green Rooms",
+    "price": 90,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 12,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Vienna",
+    "name": "Ringstrasse Sustainable Suites",
+    "price": 140,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Bali",
+    "name": "Ubud Rice-Terrace Eco Villas",
+    "price": 95,
+    "eco_certified": true,
+    "certification_body": "Green Globe",
+    "carbon_kg_per_night": 14,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Bali",
+    "name": "Sidemen Community Homestay",
+    "price": 55,
+    "eco_certified": true,
+    "certification_body": "Travelife",
+    "carbon_kg_per_night": 10,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Bali",
+    "name": "Coastal Regenerative Resort",
+    "price": 150,
+    "eco_certified": true,
+    "certification_body": "Green Key",
+    "carbon_kg_per_night": 18,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Scottish Highlands",
+    "name": "Glen Hydro-Powered Lodge",
+    "price": 100,
+    "eco_certified": true,
+    "certification_body": "Green Tourism",
+    "carbon_kg_per_night": 8,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Scottish Highlands",
+    "name": "Loch Side Eco Bothy",
+    "price": 80,
+    "eco_certified": true,
+    "certification_body": "Green Tourism",
+    "carbon_kg_per_night": 7,
+    "data_status": "demo"
+  },
+  {
+    "destination": "Scottish Highlands",
+    "name": "Highland Estate Rewilding Hotel",
+    "price": 135,
+    "eco_certified": true,
+    "certification_body": "Green Tourism",
+    "carbon_kg_per_night": 11,
+    "data_status": "demo"
+  }
+]

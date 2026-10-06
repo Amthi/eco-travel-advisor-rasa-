@@ -1,0 +1,64 @@
+recipe: default.v1
+assistant_id: rasa-eco-travel-advisor
+language: en
+
+# Primary pipeline: DIETClassifier with spaCy tokeniser/featurisers
+# (best accuracy/latency trade-off on CPU; keeps replies < 3 s).
+pipeline:
+  - name: SpacyNLP
+    model: "en_core_web_md"
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  - name: FallbackClassifier
+    threshold: 0.5
+    ambiguity_threshold: 0.05
+
+# OPTIONAL DistilBERT upgrade (only if latency stays < 3 s).
+# NOTE: the assignment brief names the HFTransformersNLP component. That
+# component was removed in Rasa 3.x; since Rasa 2.8 the same Hugging Face
+# models are loaded through LanguageModelFeaturizer (this project uses
+# Rasa 3.6). Replace the pipeline above with:
+#
+# pipeline:
+#   - name: WhitespaceTokenizer
+#   - name: RegexFeaturizer
+#   - name: LexicalSyntacticFeaturizer
+#   - name: CountVectorsFeaturizer
+#   - name: CountVectorsFeaturizer
+#     analyzer: char_wb
+#     min_ngram: 1
+#     max_ngram: 4
+#   - name: LanguageModelFeaturizer
+#     model_name: "distilbert"
+#     model_weights: "distilbert-base-uncased"
+#   - name: DIETClassifier
+#     epochs: 100
+#     constrain_similarities: true
+#   - name: EntitySynonymMapper
+#   - name: FallbackClassifier
+#     threshold: 0.5
+#     ambiguity_threshold: 0.05
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+    # NLU fallback is handled by the explicit nlu_fallback rules in
+    # data/rules.yml. Core fallback is switched off on purpose: a custom
+    # action_default_fallback that does not revert the user turn re-triggers
+    # itself until Rasa prints "Circuit breaker tripped".
+    enable_fallback_prediction: false
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true

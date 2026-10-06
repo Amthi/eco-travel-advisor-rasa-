@@ -1,0 +1,205 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet
+  steps:
+    - intent: greet
+    - action: action_greet
+
+# ---- Form activation: any trip detail can start the intake -----------------
+# Entity-mapped slots (destination, origin, dates, budget, preference) are
+# filled from the triggering message; the form then asks for what is missing.
+- rule: Activate trip intake form on destination
+  steps:
+    - intent: inform_destination
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Activate trip intake form on origin
+  condition:
+    - active_loop: null
+  steps:
+    - intent: inform_origin
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Activate trip intake form on dates
+  condition:
+    - active_loop: null
+  steps:
+    - intent: inform_dates
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Activate trip intake form on budget
+  condition:
+    - active_loop: null
+  steps:
+    - intent: inform_budget
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Activate trip intake form on sustainability preference
+  condition:
+    - active_loop: null
+  steps:
+    - intent: inform_sustainability_preference
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Submit trip intake form
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - action: trip_intake_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+# ---- Goodbye ---------------------------------------------------------------
+- rule: Say goodbye (no form active)
+  condition:
+    - active_loop: null
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Say goodbye and leave the form
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: goodbye
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_goodbye
+
+# ---- Out of scope ----------------------------------------------------------
+- rule: Out of scope (no form active)
+  condition:
+    - active_loop: null
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+- rule: Out of scope while the form is active (answer, then resume)
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+# ---- Questions: answered directly, or as an interruption of the form -------
+- rule: Carbon footprint question
+  condition:
+    - active_loop: null
+  steps:
+    - intent: ask_carbon_footprint
+    - action: action_calculate_carbon_footprint
+
+- rule: Carbon footprint question during the form (answer, then resume)
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: ask_carbon_footprint
+    - action: action_calculate_carbon_footprint
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Recommendation request
+  condition:
+    - active_loop: null
+  steps:
+    - intent: ask_recommendations
+    - action: action_fetch_travel_options
+    - action: action_rank_options
+
+- rule: Local experiences request
+  condition:
+    - active_loop: null
+  steps:
+    - intent: ask_activities
+    - action: action_show_experiences
+
+- rule: Local experiences request during the form (answer, then resume)
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: ask_activities
+    - action: action_show_experiences
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+- rule: Carbon offsets request
+  condition:
+    - active_loop: null
+  steps:
+    - intent: ask_offsets
+    - action: action_show_offsets
+
+- rule: Carbon offsets request during the form (answer, then resume)
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: ask_offsets
+    - action: action_show_offsets
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+
+# ---- Human handover (GDPR: ask consent BEFORE sharing the transcript) ------
+- rule: Request for a human advisor (no form active) - ask consent
+  condition:
+    - active_loop: null
+  steps:
+    - intent: request_human_advisor
+    - action: action_ask_handover_consent
+
+- rule: Request for a human advisor (form active) - ask consent
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: request_human_advisor
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: action_ask_handover_consent
+
+# "yes" / "no": the actions check whether a consent question is pending.
+- rule: Yes (no form active)
+  condition:
+    - active_loop: null
+  steps:
+    - intent: affirm
+    - action: action_handle_affirm
+
+- rule: No (no form active)
+  condition:
+    - active_loop: null
+  steps:
+    - intent: deny
+    - action: action_handle_deny
+
+# ---- Two-stage fallback ----------------------------------------------------
+# action_default_fallback counts consecutive failed turns itself:
+#   1st failure -> clarification message with quick-reply buttons
+#   2nd failure -> consent question (-> handover only after "yes")
+- rule: Two-stage fallback (no form active)
+  condition:
+    - active_loop: null
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+
+# Inside the form the typed text is still accepted as the slot value
+# (from_text mapping), so the form simply continues.
+- rule: Fallback while the form is active
+  condition:
+    - active_loop: trip_intake_form
+  steps:
+    - intent: nlu_fallback
+    - action: trip_intake_form
+    - active_loop: trip_intake_form

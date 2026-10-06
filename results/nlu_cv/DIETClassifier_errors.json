@@ -1,0 +1,875 @@
+[
+  {
+    "text": "negative",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.3303307890892029,
+        "value": "negative",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "can we go to the Scottish Highlands?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 35,
+        "value": "the Scottish Highlands",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 17,
+        "end": 35,
+        "confidence_entity": 0.9728531241416931,
+        "value": "Scottish Highlands",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "sometime in June 2027",
+    "entities": [
+      {
+        "start": 12,
+        "end": 21,
+        "value": "June 2027",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.4771970212459564,
+        "value": "sometime",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 12,
+        "end": 21,
+        "confidence_entity": 0.966528594493866,
+        "value": "June 2027",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd go in early November",
+    "entities": [
+      {
+        "start": 10,
+        "end": 24,
+        "value": "early November",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 16,
+        "end": 24,
+        "confidence_entity": 0.9172322154045105,
+        "value": "November",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "sustainability matters a lot to me",
+    "entities": [
+      {
+        "start": 0,
+        "end": 28,
+        "value": "maximum_sustainability",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "lowest emissions please",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "maximum_sustainability",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "sustainability is fairly important to me",
+    "entities": [
+      {
+        "start": 18,
+        "end": 34,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is 25 times 4",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 8,
+        "end": 10,
+        "confidence_entity": 0.6632901430130005,
+        "value": "25",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 17,
+        "end": 18,
+        "confidence_entity": 0.9733940958976746,
+        "value": "4",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "tell me about the history of Rome",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "origin",
+        "start": 29,
+        "end": 33,
+        "confidence_entity": 0.7694040536880493,
+        "value": "Rome",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "of course",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.47801682353019714,
+        "value": "of course",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "in September",
+    "entities": [
+      {
+        "start": 3,
+        "end": 12,
+        "value": "September",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.530131995677948,
+        "value": "in September",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "around Christmas",
+    "entities": [
+      {
+        "start": 7,
+        "end": 16,
+        "value": "Christmas",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "750 euros maximum",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "750 euros",
+        "entity": "budget"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "budget",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.8928374648094177,
+        "value": "750 euros",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 10,
+        "end": 17,
+        "confidence_entity": 0.9743621349334717,
+        "value": "maximum",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "just give me something reasonably priced, budget conscious",
+    "entities": [
+      {
+        "start": 42,
+        "end": 58,
+        "value": "budget_conscious",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 49,
+        "end": 58,
+        "confidence_entity": 0.77173912525177,
+        "value": "conscious",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "balanced please, I care about both cost and emissions",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "moderately sustainable",
+    "entities": [
+      {
+        "start": 0,
+        "end": 22,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 11,
+        "end": 22,
+        "confidence_entity": 0.9267858862876892,
+        "value": "sustainable",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like both cheap and green",
+    "entities": [
+      {
+        "start": 9,
+        "end": 29,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my starting point is London",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "value": "London",
+        "entity": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 21,
+        "end": 27,
+        "confidence_entity": 0.856196403503418,
+        "value": "London",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "we leave on 1 May and return 8 May",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "1 May",
+        "entity": "travel_date"
+      },
+      {
+        "start": 29,
+        "end": 34,
+        "value": "8 May",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 9,
+        "end": 11,
+        "confidence_entity": 0.8983644247055054,
+        "value": "on",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.9371190667152405,
+        "value": "1 May",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 29,
+        "end": 34,
+        "confidence_entity": 0.7104936838150024,
+        "value": "8 May",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "we travel 20-27 December 2026",
+    "entities": [
+      {
+        "start": 10,
+        "end": 29,
+        "value": "20-27 December 2026",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 10,
+        "end": 12,
+        "confidence_entity": 0.5767191648483276,
+        "value": "20",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 13,
+        "end": 29,
+        "confidence_entity": 0.6370792388916016,
+        "value": "27 December 2026",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "around 2000 dollars",
+    "entities": [
+      {
+        "start": 7,
+        "end": 19,
+        "value": "2000 dollars",
+        "entity": "budget"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 7,
+        "end": 19,
+        "confidence_entity": 0.4460172653198242,
+        "value": "2000 dollars",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "keep it cheap, I'm on a tight budget",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "budget_conscious",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 19,
+        "end": 21,
+        "confidence_entity": 0.5448777079582214,
+        "value": "on",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "lowest price first",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "budget_conscious",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 18,
+        "confidence_entity": 0.2634356617927551,
+        "value": "lowest price first",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "somewhere in the middle",
+    "entities": [
+      {
+        "start": 0,
+        "end": 23,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what can I do in Rome that's sustainable?",
+    "entities": [
+      {
+        "start": 17,
+        "end": 21,
+        "value": "Rome",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "origin",
+        "start": 17,
+        "end": 21,
+        "confidence_entity": 0.5202273726463318,
+        "value": "Rome",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "somewhere in the Scottish Highlands",
+    "entities": [
+      {
+        "start": 13,
+        "end": 35,
+        "value": "the Scottish Highlands",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9875202178955078,
+        "value": "somewhere",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "destination",
+        "start": 13,
+        "end": 35,
+        "confidence_entity": 0.4765152633190155,
+        "value": "the Scottish Highlands",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "for New Year",
+    "entities": [
+      {
+        "start": 4,
+        "end": 12,
+        "value": "New Year",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 8,
+        "end": 12,
+        "confidence_entity": 0.48462894558906555,
+        "value": "Year",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "the planet comes first, as green as possible",
+    "entities": [
+      {
+        "start": 24,
+        "end": 44,
+        "value": "maximum_sustainability",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 27,
+        "end": 32,
+        "confidence_entity": 0.3789837956428528,
+        "value": "green",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 36,
+        "end": 44,
+        "confidence_entity": 0.9824888706207275,
+        "value": "possible",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cheapest please, sustainability is a bonus",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "budget_conscious",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.5661188960075378,
+        "value": "budget_conscious",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 17,
+        "end": 31,
+        "confidence_entity": 0.6201503872871399,
+        "value": "sustainability",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.28274303674697876,
+        "value": "bonus",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "price matters most, budget friendly",
+    "entities": [
+      {
+        "start": 20,
+        "end": 35,
+        "value": "budget_conscious",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.5218065977096558,
+        "value": "price matters",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 14,
+        "end": 18,
+        "confidence_entity": 0.6637426018714905,
+        "value": "most",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "sustainability_level",
+        "start": 20,
+        "end": 26,
+        "confidence_entity": 0.9639576077461243,
+        "value": "budget",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest some sustainable accommodation",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 13,
+        "end": 24,
+        "confidence_entity": 0.9144818782806396,
+        "value": "sustainable",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "travelling from 3rd to 10th of March",
+    "entities": [
+      {
+        "start": 16,
+        "end": 36,
+        "value": "3rd to 10th of March",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.2836771607398987,
+        "value": "3rd",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 23,
+        "end": 27,
+        "confidence_entity": 0.31965750455856323,
+        "value": "10th",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "travel_date",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.8955946564674377,
+        "value": "March",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "probably the second week of May",
+    "entities": [
+      {
+        "start": 9,
+        "end": 31,
+        "value": "the second week of May",
+        "entity": "travel_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "travel_date",
+        "start": 28,
+        "end": 31,
+        "confidence_entity": 0.8916900753974915,
+        "value": "May",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "budget: 1600 euros",
+    "entities": [
+      {
+        "start": 8,
+        "end": 18,
+        "value": "1600 euros",
+        "entity": "budget"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.5075712203979492,
+        "value": "budget:",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "budget",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.9683786630630493,
+        "value": "1600 euros",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want the most sustainable option",
+    "entities": [
+      {
+        "start": 11,
+        "end": 27,
+        "value": "maximum_sustainability",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I don't mind paying more to reduce emissions, maximum sustainability",
+    "entities": [
+      {
+        "start": 46,
+        "end": 68,
+        "value": "maximum_sustainability",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "a mix of green and affordable",
+    "entities": [
+      {
+        "start": 0,
+        "end": 29,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 9,
+        "end": 29,
+        "confidence_entity": 0.5923161506652832,
+        "value": "green and affordable",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "equal weight on price and emissions",
+    "entities": [
+      {
+        "start": 0,
+        "end": 35,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 22,
+        "end": 35,
+        "confidence_entity": 0.7713420391082764,
+        "value": "and emissions",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "a fair compromise",
+    "entities": [
+      {
+        "start": 0,
+        "end": 17,
+        "value": "balanced",
+        "entity": "sustainability_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I live in Rome",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "Rome",
+        "entity": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 10,
+        "end": 14,
+        "confidence_entity": 0.6940727829933167,
+        "value": "Rome",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "carbon compensation options",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "sustainability_level",
+        "start": 7,
+        "end": 27,
+        "confidence_entity": 0.551697313785553,
+        "value": "compensation options",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

@@ -1,0 +1,424 @@
+version: "3.1"
+
+stories:
+
+- story: test - budget-conscious trip to Lisbon
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Lisbon"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Hamburg"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "3rd to 10th of March"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "900 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "budget_conscious"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - maximum sustainability trip to Costa Rica
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Costa Rica"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "London"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "15 to 20 November"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "3000 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "maximum_sustainability"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - balanced city break to Vienna
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Vienna"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Munich"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "early spring"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "1100 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "balanced"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - form opened by dates
+  steps:
+    - intent: inform_dates
+      entities:
+        - travel_date: "2 to 9 July"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_destination
+      entities:
+        - destination: "Paris"
+    - action: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Berlin"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "700 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "balanced"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - form opened by origin
+  steps:
+    - intent: inform_origin
+      entities:
+        - origin: "Amsterdam"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_destination
+      entities:
+        - destination: "Kyoto"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "June 2027"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "2500 dollars"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "maximum_sustainability"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - form opened by budget
+  steps:
+    - intent: inform_budget
+      entities:
+        - budget: "1000 euros"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_destination
+      entities:
+        - destination: "Rome"
+    - action: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Paris"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "around Christmas"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "budget_conscious"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - invalid destination is re-asked
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Atlantis"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_destination
+      entities:
+        - destination: "Lisbon"
+    - action: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Berlin"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "12-18 October 2026"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "1500 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "balanced"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - invalid dates are re-asked
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Rome"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Berlin"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "abc"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "10-14 March 2027"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "1000 euros"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "balanced"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - invalid budget is re-asked
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Paris"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "London"
+    - action: trip_intake_form
+    - intent: inform_dates
+      entities:
+        - travel_date: "in September"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "lots"
+    - action: trip_intake_form
+    - intent: inform_budget
+      entities:
+        - budget: "800 GBP"
+    - action: trip_intake_form
+    - intent: inform_sustainability_preference
+      entities:
+        - sustainability_level: "budget_conscious"
+    - action: trip_intake_form
+    - active_loop: null
+    - action: action_fetch_travel_options
+    - action: action_calculate_carbon_footprint
+    - action: action_rank_options
+
+
+- story: test - user asks for a human and consents
+  steps:
+    - intent: greet
+    - action: action_greet
+    - intent: request_human_advisor
+    - action: action_ask_handover_consent
+    - intent: affirm
+    - action: action_handle_affirm
+
+
+- story: test - user asks for a human and declines
+  steps:
+    - intent: request_human_advisor
+    - action: action_ask_handover_consent
+    - intent: deny
+    - action: action_handle_deny
+
+
+- story: test - carbon question
+  steps:
+    - intent: ask_carbon_footprint
+      entities:
+        - destination: "Paris"
+    - action: action_calculate_carbon_footprint
+
+
+- story: test - experiences question
+  steps:
+    - intent: ask_activities
+      entities:
+        - destination: "Lisbon"
+    - action: action_show_experiences
+
+
+- story: test - offsets question
+  steps:
+    - intent: ask_offsets
+    - action: action_show_offsets
+
+
+- story: test - goodbye
+  steps:
+    - intent: greet
+    - action: action_greet
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: test - out of scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+
+- story: test - carbon question interrupts the form
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Kyoto"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: ask_carbon_footprint
+    - action: action_calculate_carbon_footprint
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Hamburg"
+    - action: trip_intake_form
+
+
+- story: test - offsets question interrupts the form
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Iceland"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: ask_offsets
+    - action: action_show_offsets
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "London"
+    - action: trip_intake_form
+
+
+- story: test - out of scope interrupts the form
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Bali"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Paris"
+    - action: trip_intake_form
+
+
+- story: test - fallback once then understood
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - intent: greet
+    - action: action_greet
+
+
+- story: test - fallback twice then handover with consent
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - intent: affirm
+    - action: action_handle_affirm
+
+
+- story: test - fallback twice then consent declined
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - intent: deny
+    - action: action_handle_deny
+
+
+- story: test - fallback inside the form keeps the form
+  steps:
+    - intent: inform_destination
+      entities:
+        - destination: "Rome"
+    - action: trip_intake_form
+    - active_loop: trip_intake_form
+    - intent: nlu_fallback
+    - action: trip_intake_form
+    - intent: inform_origin
+      entities:
+        - origin: "Berlin"
+    - action: trip_intake_form
+

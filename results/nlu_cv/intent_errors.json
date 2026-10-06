@@ -1,0 +1,506 @@
+[
+  {
+    "text": "go ahead",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.867512583732605
+    }
+  },
+  {
+    "text": "please do",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.18583957850933075
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.44142985343933105
+    }
+  },
+  {
+    "text": "negative",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.47970083355903625
+    }
+  },
+  {
+    "text": "I'm thinking Kyoto",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.40964895486831665
+    }
+  },
+  {
+    "text": "I'd go in early November",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.5868974328041077
+    }
+  },
+  {
+    "text": "lowest emissions please",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.594147264957428
+    }
+  },
+  {
+    "text": "what is the environmental impact of this trip?",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.882398784160614
+    }
+  },
+  {
+    "text": "what's the carbon impact of getting to Iceland?",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.5670285820960999
+    }
+  },
+  {
+    "text": "recommend a good film",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3862071633338928
+    }
+  },
+  {
+    "text": "what is 25 times 4",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "inform_dates",
+      "confidence": 0.966096043586731
+    }
+  },
+  {
+    "text": "tell me about the history of Rome",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.5900618433952332
+    }
+  },
+  {
+    "text": "greetings",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.2742820084095001
+    }
+  },
+  {
+    "text": "hello eco advisor",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.5230894088745117
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "inform_dates",
+      "confidence": 0.4665437638759613
+    }
+  },
+  {
+    "text": "I'm happy with that",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.48944392800331116
+    }
+  },
+  {
+    "text": "that's incorrect",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6308582425117493
+    }
+  },
+  {
+    "text": "around Christmas",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "inform_budget",
+      "confidence": 0.27511894702911377
+    }
+  },
+  {
+    "text": "what are the greenest transport options?",
+    "intent": "ask_recommendations",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.8910920023918152
+    }
+  },
+  {
+    "text": "suggest activities in Iceland",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "inform_destination",
+      "confidence": 0.5431032180786133
+    }
+  },
+  {
+    "text": "I want to neutralise the emissions of this trip",
+    "intent": "ask_offsets",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.8981500864028931
+    }
+  },
+  {
+    "text": "what is the capital of Australia",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.5257142782211304
+    }
+  },
+  {
+    "text": "how do I fix my laptop",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_offsets",
+      "confidence": 0.29192861914634705
+    }
+  },
+  {
+    "text": "can you write code for me",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.5327369570732117
+    }
+  },
+  {
+    "text": "start",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.495025098323822
+    }
+  },
+  {
+    "text": "howdy",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5692126154899597
+    }
+  },
+  {
+    "text": "until next time",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "inform_origin",
+      "confidence": 0.31671759486198425
+    }
+  },
+  {
+    "text": "somewhere in the middle",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5117460489273071
+    }
+  },
+  {
+    "text": "what are the best options for me?",
+    "intent": "ask_recommendations",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.5179830193519592
+    }
+  },
+  {
+    "text": "what can I do in Rome that's sustainable?",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.38156989216804504
+    }
+  },
+  {
+    "text": "anything cultural and sustainable to do?",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.783805787563324
+    }
+  },
+  {
+    "text": "I want a travel advisor to look at my trip",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.43433693051338196
+    }
+  },
+  {
+    "text": "can you book a restaurant for tonight",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.7461310625076294
+    }
+  },
+  {
+    "text": "translate this into French",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.2680569887161255
+    }
+  },
+  {
+    "text": "give me a recipe for soup",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.3081376552581787
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.7015863060951233
+    }
+  },
+  {
+    "text": "farewell",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.2624734044075012
+    }
+  },
+  {
+    "text": "that works",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.44791674613952637
+    }
+  },
+  {
+    "text": "fine by me",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.44362491369247437
+    }
+  },
+  {
+    "text": "nah",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7264342904090881
+    }
+  },
+  {
+    "text": "somewhere in the Scottish Highlands",
+    "intent": "inform_destination",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.5022522807121277
+    }
+  },
+  {
+    "text": "for New Year",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3722170889377594
+    }
+  },
+  {
+    "text": "what's the stock price of Apple",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.6789608597755432
+    }
+  },
+  {
+    "text": "hiya",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.21864289045333862
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.43420231342315674
+    }
+  },
+  {
+    "text": "take care",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.341654509305954
+    }
+  },
+  {
+    "text": "ok bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8509446978569031
+    }
+  },
+  {
+    "text": "sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.18178744614124298
+    }
+  },
+  {
+    "text": "definitely",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.27191847562789917
+    }
+  },
+  {
+    "text": "wrong",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9488750696182251
+    }
+  },
+  {
+    "text": "travelling from 3rd to 10th of March",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.4041733741760254
+    }
+  },
+  {
+    "text": "probably the second week of May",
+    "intent": "inform_dates",
+    "intent_prediction": {
+      "name": "ask_carbon_footprint",
+      "confidence": 0.7286651134490967
+    }
+  },
+  {
+    "text": "I want the most sustainable option",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.8334542512893677
+    }
+  },
+  {
+    "text": "a fair compromise",
+    "intent": "inform_sustainability_preference",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.37263524532318115
+    }
+  },
+  {
+    "text": "how green is this option?",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.9535046815872192
+    }
+  },
+  {
+    "text": "tell me the CO2e of my route",
+    "intent": "ask_carbon_footprint",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.43109753727912903
+    }
+  },
+  {
+    "text": "where should I stay to keep my footprint low?",
+    "intent": "ask_recommendations",
+    "intent_prediction": {
+      "name": "ask_offsets",
+      "confidence": 0.36366310715675354
+    }
+  },
+  {
+    "text": "I want to support local artisans",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.5329216122627258
+    }
+  },
+  {
+    "text": "carbon compensation options",
+    "intent": "ask_offsets",
+    "intent_prediction": {
+      "name": "inform_sustainability_preference",
+      "confidence": 0.6642236709594727
+    }
+  },
+  {
+    "text": "I need expert help planning a multi-city trip",
+    "intent": "request_human_advisor",
+    "intent_prediction": {
+      "name": "ask_activities",
+      "confidence": 0.5268798470497131
+    }
+  },
+  {
+    "text": "play some music",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.30021440982818604
+    }
+  },
+  {
+    "text": "help me with my homework",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_human_advisor",
+      "confidence": 0.7958570718765259
+    }
+  },
+  {
+    "text": "what's the best smartphone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_recommendations",
+      "confidence": 0.4934661090373993
+    }
+  }
+]
