@@ -1,0 +1,11 @@
+.env
+*.pyc
+__pycache__/
+models/
+.rasa/
+.venv/
+node_modules/
+*.log
+handovers/
+results/
+.pytest_cache/
